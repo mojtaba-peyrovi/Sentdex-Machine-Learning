@@ -1,0 +1,61 @@
+python:
+
+
+
+Sentdex machine learning--------------------
+part2: Regression Intro
+part3: Regression Lables and Features.
+    .shift()  will shitf the column high or low. e.g. df['label'] = df[forecast_col].shift(-forecast_out)  ==> it shifts forecast_col values up for the amount of forecast_out(10 days in this example)
+part4: Train and Test the  model
+    Preprocessing.scale() with scale data. still dont know much about it,.
+we can use len(X) and len(y) to see how much is the size of each.,
+it is so simple to use SVM instead of LinearRegression by simply saying: clf = svm.SVR()     instead of     clf = LinearRegression()
+part 5:  in order to see the predictions:  forecast_set = clf.predict(X_lately)
+the meaning of _ in python : checl this link:
+https://hackernoon.com/understanding-the-underscore-of-python-309d1a029edc
+
+
+
+
+
+
+revenue['website'] = revenue.website.astype(int)
+
+changes a specific column from float to int
+
+change the data types when we import?:
+revenue = pd.read_excel("mg-insights-apr-2018.xlsx",sheetname='Revenue Analysis',dtype={'website':int,'other_sources':int,'total_revenue':int,'year':object})
+
+adds thousand separator:
+revenue['website'] = revenue.apply(lambda x: "{:,}".format(x['website']), axis=1)
+
+to delete a column by index:           train = train.drop(train.columns[12], axis=1,inplace=True)
+to delete a column by name:           train.drop('Cabin',axis=1,inplace=True)
+to drop all empty reccords:             train.dropna(inplace=True)
+
+
+X = df.loc[:, df.columns != 'label']  ==> X would be the dataframe except column 'label'   or with numpy :  X = np.array(df.drop(['label'],1)
+
+
+x = 1.357e-05    
+print('%f' % x)     converts scientific notation to float
+train.to_excel('final.xlsx')   ==> extracts dataFrame to excel
+
+
+Support Vector Machine-----------------
+it is similar to the others. 
+grid search looks for best parameters to increase the precision.
+Its so great. it increased the precision from 35% to 95%
+
+
+-----------check these out:
+Python Keras library
+Theano
+TensorFlow
+Weka
+
+
+
+
+
+
